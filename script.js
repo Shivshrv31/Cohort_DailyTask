@@ -1,29 +1,20 @@
+var img = document.querySelector('img');
+var love = document.querySelector('#love')
 
-var grow = 0;
-var btn = document.querySelector('button');
-var h = document.querySelector('h2');
-var inner = document.querySelector('.inner')
-var card = document.querySelector('.card')
-
-
-btn.addEventListener('click',()=>{
-    btn.style.pointerEvents = 'none';
-    btn.style.opacity = '0.5';
+img.addEventListener('dblclick', function(){
+    love.style.opacity = 1;
+    love.style.transform = 'translate(-50%,-50%) scale(1) rotate(0deg)'
     
-    var num = 30 + Math.floor(Math.random()*50);
-    console.log('your file will be downloaded in ',num/10 ,'seconds');
-
-    var int = setInterval(()=>{
-
-        grow++;
-        h.innerHTML = grow+'%';
-        inner.style.width = grow+'%';
-        
-    },num)
-
     setTimeout(()=>{
-        clearInterval(int);
-        btn.innerHTML='Downloaded';
-     
-    },num*100)
+        love.style.transform = 'translate(-50%,-350%) scale(1) rotate(60deg)'
+        
+    },800)
+    
+    setTimeout(()=>{
+        love.style.opacity = 0;
+    },1000)
+    
+    setTimeout(()=>{
+        love.style.transform = 'translate(-50%,-50%) scale(0) rotate(-60deg)'          
+    },1300)
 })
